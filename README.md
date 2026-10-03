@@ -15,7 +15,8 @@ Gram altın, ayar ve ziynet altınları, ons, gümüş ile USD, EUR, GBP ve CHF 
 curl -A "BenimUygulamam/1.0" https://api.gramhane.com/v1/prices.json
 ```
 
-> **Önemli:** İsteklerde bir `User-Agent` başlığı gönderin. Bu başlığı göndermeyen istekler sunucu tarafından `403` ile reddedilir.
+> **Önemli:** İsteklerde kendi uygulamanızın adını taşıyan bir `User-Agent` başlığı gönderin (ör. `SiteAdiniz/1.0`).
+> Bu başlığı göndermeyen ya da araçların varsayılan kimliğini kullanan istekler (`curl/...`, `python-requests/...`, PHP `file_get_contents`) `403` ile reddedilir.
 
 ## Yanıt yapısı
 
@@ -79,7 +80,7 @@ Anahtarlar Türkçe karakter içerir. JSON'u UTF-8 olarak okuyun.
 | Kod | Anlamı |
 |---|---|
 | `200` | Başarılı |
-| `403` | `User-Agent` başlığı eksik |
+| `403` | `User-Agent` başlığı eksik veya aracın varsayılan kimliği (kendi uygulama adınızı yazın) |
 | `429` | Dakikalık istek sınırı aşıldı |
 | `500` | Veri geçici olarak kullanılamıyor |
 
